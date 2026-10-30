@@ -44,7 +44,7 @@ The rules below were agreed with Compliance and the AP Manager. **They are writt
 | **M-4** | Unit prices match the contract price (1% tolerance for rounding) | Review |
 | **M-5** | Extra charges (e.g., freight) appear only if the contract allows them, up to the agreed cap | Review |
 | **M-6** | Lines add up: lines + tax + allowed charges = invoice total (±$1.00) | Review |
-| **M-7** | Not a duplicate: same vendor and invoice number, or same vendor and total within 30 days | Review: "possible duplicate" |
+| **M-7** | Not a duplicate: same vendor and invoice number, or same vendor, PO, and total within 14 days | Review: "possible duplicate" |
 | **M-8** | Currency is USD | Review (out of scope for release 1) |
 | **M-9** | Bank details on the invoice match the vendor master | **Security review** (possible fraud) |
 | **M-10** | All required fields were read, with enough confidence | Review: "could not read invoice reliably" |

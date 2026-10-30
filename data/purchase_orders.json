@@ -1,0 +1,425 @@
+{
+  "_note": "Sample data, made up for this project.",
+  "purchase_orders": {
+    "PO-7701": {
+      "vendor_id": "V-101",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CHR-450",
+          "description": "Ergonomic office chair",
+          "qty_ordered": 4,
+          "qty_invoiced": 0,
+          "unit_price": 450.0
+        },
+        {
+          "sku": "PAP-A4",
+          "description": "Copy paper, box of 10 reams",
+          "qty_ordered": 10,
+          "qty_invoiced": 0,
+          "unit_price": 38.5
+        }
+      ]
+    },
+    "PO-7702": {
+      "vendor_id": "V-102",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "LAP-14",
+          "description": "Laptop 14-inch",
+          "qty_ordered": 5,
+          "qty_invoiced": 0,
+          "unit_price": 1450.0
+        },
+        {
+          "sku": "DCK-01",
+          "description": "Docking station",
+          "qty_ordered": 5,
+          "qty_invoiced": 0,
+          "unit_price": 189.0
+        }
+      ]
+    },
+    "PO-7703": {
+      "vendor_id": "V-103",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CLN-MO",
+          "description": "Monthly office cleaning",
+          "qty_ordered": 12,
+          "qty_invoiced": 9,
+          "unit_price": 4200.0
+        }
+      ]
+    },
+    "PO-7704": {
+      "vendor_id": "V-101",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "TNR-88",
+          "description": "Toner cartridge",
+          "qty_ordered": 6,
+          "qty_invoiced": 0,
+          "unit_price": 96.0
+        },
+        {
+          "sku": "PAP-A4",
+          "description": "Copy paper, box of 10 reams",
+          "qty_ordered": 5,
+          "qty_invoiced": 0,
+          "unit_price": 38.5
+        }
+      ]
+    },
+    "PO-7705": {
+      "vendor_id": "V-104",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CUR-ST",
+          "description": "Standard courier delivery",
+          "qty_ordered": 60,
+          "qty_invoiced": 0,
+          "unit_price": 14.5
+        },
+        {
+          "sku": "CUR-EX",
+          "description": "Express courier delivery",
+          "qty_ordered": 20,
+          "qty_invoiced": 0,
+          "unit_price": 29.0
+        }
+      ]
+    },
+    "PO-7706": {
+      "vendor_id": "V-105",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "PRT-BR",
+          "description": "Brochure print run, 1,000 copies",
+          "qty_ordered": 2,
+          "qty_invoiced": 0,
+          "unit_price": 640.0
+        }
+      ]
+    },
+    "PO-7707": {
+      "vendor_id": "V-107",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CAT-LUN",
+          "description": "Working lunch, per person",
+          "qty_ordered": 40,
+          "qty_invoiced": 0,
+          "unit_price": 18.5
+        },
+        {
+          "sku": "CAT-EVT",
+          "description": "Event catering package",
+          "qty_ordered": 1,
+          "qty_invoiced": 0,
+          "unit_price": 1250.0
+        }
+      ]
+    },
+    "PO-7708": {
+      "vendor_id": "V-102",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "LAP-14",
+          "description": "Laptop 14-inch",
+          "qty_ordered": 8,
+          "qty_invoiced": 0,
+          "unit_price": 1450.0
+        },
+        {
+          "sku": "MON-27",
+          "description": "Monitor 27-inch",
+          "qty_ordered": 8,
+          "qty_invoiced": 0,
+          "unit_price": 310.0
+        }
+      ]
+    },
+    "PO-7709": {
+      "vendor_id": "V-106",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CNS-MS",
+          "description": "Analytics project milestone",
+          "qty_ordered": 2,
+          "qty_invoiced": 0,
+          "unit_price": 24000.0
+        }
+      ]
+    },
+    "PO-7710": {
+      "vendor_id": "V-106",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CNS-MS",
+          "description": "Analytics project milestone",
+          "qty_ordered": 5,
+          "qty_invoiced": 0,
+          "unit_price": 24000.0
+        },
+        {
+          "sku": "CNS-DAY",
+          "description": "Senior consultant day",
+          "qty_ordered": 4,
+          "qty_invoiced": 0,
+          "unit_price": 1600.0
+        }
+      ]
+    },
+    "PO-7711": {
+      "vendor_id": "V-105",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "PRT-BC",
+          "description": "Business cards, box of 500",
+          "qty_ordered": 20,
+          "qty_invoiced": 0,
+          "unit_price": 42.0
+        }
+      ]
+    },
+    "PO-7712": {
+      "vendor_id": "V-101",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CHR-450",
+          "description": "Ergonomic office chair",
+          "qty_ordered": 10,
+          "qty_invoiced": 0,
+          "unit_price": 450.0
+        }
+      ]
+    },
+    "PO-7713": {
+      "vendor_id": "V-102",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "MON-27",
+          "description": "Monitor 27-inch",
+          "qty_ordered": 10,
+          "qty_invoiced": 0,
+          "unit_price": 310.0
+        },
+        {
+          "sku": "DCK-01",
+          "description": "Docking station",
+          "qty_ordered": 10,
+          "qty_invoiced": 0,
+          "unit_price": 189.0
+        }
+      ]
+    },
+    "PO-7714": {
+      "vendor_id": "V-101",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CHR-450",
+          "description": "Ergonomic office chair",
+          "qty_ordered": 6,
+          "qty_invoiced": 0,
+          "unit_price": 450.0
+        },
+        {
+          "sku": "DSK-620",
+          "description": "Standing desk",
+          "qty_ordered": 2,
+          "qty_invoiced": 0,
+          "unit_price": 620.0
+        }
+      ]
+    },
+    "PO-7715": {
+      "vendor_id": "V-107",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CAT-LUN",
+          "description": "Working lunch, per person",
+          "qty_ordered": 50,
+          "qty_invoiced": 0,
+          "unit_price": 18.5
+        }
+      ]
+    },
+    "PO-7716": {
+      "vendor_id": "V-104",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CUR-ST",
+          "description": "Standard courier delivery",
+          "qty_ordered": 150,
+          "qty_invoiced": 75,
+          "unit_price": 14.5
+        }
+      ]
+    },
+    "PO-7717": {
+      "vendor_id": "V-107",
+      "status": "closed",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CAT-EVT",
+          "description": "Event catering package",
+          "qty_ordered": 2,
+          "qty_invoiced": 2,
+          "unit_price": 1250.0
+        }
+      ]
+    },
+    "PO-7718": {
+      "vendor_id": "V-103",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CLN-DP",
+          "description": "Deep clean, per floor",
+          "qty_ordered": 6,
+          "qty_invoiced": 0,
+          "unit_price": 850.0
+        }
+      ]
+    },
+    "PO-7719": {
+      "vendor_id": "V-102",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "LIC-365",
+          "description": "Office suite licence, annual",
+          "qty_ordered": 40,
+          "qty_invoiced": 0,
+          "unit_price": 264.0
+        }
+      ]
+    },
+    "PO-7720": {
+      "vendor_id": "V-105",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "PRT-BR",
+          "description": "Brochure print run, 1,000 copies",
+          "qty_ordered": 3,
+          "qty_invoiced": 0,
+          "unit_price": 640.0
+        },
+        {
+          "sku": "PRT-BC",
+          "description": "Business cards, box of 500",
+          "qty_ordered": 10,
+          "qty_invoiced": 0,
+          "unit_price": 42.0
+        }
+      ]
+    },
+    "PO-7721": {
+      "vendor_id": "V-101",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "TNR-88",
+          "description": "Toner cartridge",
+          "qty_ordered": 12,
+          "qty_invoiced": 0,
+          "unit_price": 96.0
+        }
+      ]
+    },
+    "PO-7722": {
+      "vendor_id": "V-106",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CNS-DAY",
+          "description": "Senior consultant day",
+          "qty_ordered": 25,
+          "qty_invoiced": 0,
+          "unit_price": 1600.0
+        }
+      ]
+    },
+    "PO-7723": {
+      "vendor_id": "V-101",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "DSK-620",
+          "description": "Standing desk",
+          "qty_ordered": 10,
+          "qty_invoiced": 0,
+          "unit_price": 620.0
+        }
+      ]
+    },
+    "PO-7724": {
+      "vendor_id": "V-102",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "MON-27",
+          "description": "Monitor 27-inch",
+          "qty_ordered": 10,
+          "qty_invoiced": 8,
+          "unit_price": 310.0
+        }
+      ]
+    },
+    "PO-7725": {
+      "vendor_id": "V-104",
+      "status": "open",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "CUR-EX",
+          "description": "Express courier delivery",
+          "qty_ordered": 30,
+          "qty_invoiced": 0,
+          "unit_price": 29.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "_note": "Sample data, made up for this project.",
+  "contracts": {
+    "V-101": {
+      "contract_id": "CT-2026-101",
+      "valid_from": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "freight_allowed": true,
+      "freight_cap": 75.0,
+      "prices": {
+        "CHR-450": {
+          "description": "Ergonomic office chair",
+          "unit_price": 450.0
+        },
+        "DSK-620": {
+          "description": "Standing desk",
+          "unit_price": 620.0
+        },
+        "PAP-A4": {
+          "description": "Copy paper, box of 10 reams",
+          "unit_price": 38.5
+        },
+        "TNR-88": {
+          "description": "Toner cartridge",
+          "unit_price": 96.0
+        }
+      }
+    },
+    "V-102": {
+      "contract_id": "CT-2026-102",
+      "valid_from": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "freight_allowed": false,
+      "freight_cap": 0.0,
+      "prices": {
+        "LAP-14": {
+          "description": "Laptop 14-inch",
+          "unit_price": 1450.0
+        },
+        "MON-27": {
+          "description": "Monitor 27-inch",
+          "unit_price": 310.0
+        },
+        "DCK-01": {
+          "description": "Docking station",
+          "unit_price": 189.0
+        },
+        "LIC-365": {
+          "description": "Office suite licence, annual",
+          "unit_price": 264.0
+        }
+      }
+    },
+    "V-103": {
+      "contract_id": "CT-2026-103",
+      "valid_from": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "freight_allowed": false,
+      "freight_cap": 0.0,
+      "prices": {
+        "CLN-MO": {
+          "description": "Monthly office cleaning",
+          "unit_price": 4200.0
+        },
+        "CLN-DP": {
+          "description": "Deep clean, per floor",
+          "unit_price": 850.0
+        }
+      }
+    },
+    "V-104": {
+      "contract_id": "CT-2026-104",
+      "valid_from": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "freight_allowed": false,
+      "freight_cap": 0.0,
+      "prices": {
+        "CUR-ST": {
+          "description": "Standard courier delivery",
+          "unit_price": 14.5
+        },
+        "CUR-EX": {
+          "description": "Express courier delivery",
+          "unit_price": 29.0
+        }
+      }
+    },
+    "V-105": {
+      "contract_id": "CT-2026-105",
+      "valid_from": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "freight_allowed": true,
+      "freight_cap": 40.0,
+      "prices": {
+        "PRT-BR": {
+          "description": "Brochure print run, 1,000 copies",
+          "unit_price": 640.0
+        },
+        "PRT-BC": {
+          "description": "Business cards, box of 500",
+          "unit_price": 42.0
+        }
+      }
+    },
+    "V-106": {
+      "contract_id": "CT-2026-106",
+      "valid_from": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "freight_allowed": false,
+      "freight_cap": 0.0,
+      "prices": {
+        "CNS-DAY": {
+          "description": "Senior consultant day",
+          "unit_price": 1600.0
+        },
+        "CNS-MS": {
+          "description": "Analytics project milestone",
+          "unit_price": 24000.0
+        }
+      }
+    },
+    "V-107": {
+      "contract_id": "CT-2026-107",
+      "valid_from": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "freight_allowed": true,
+      "freight_cap": 60.0,
+      "prices": {
+        "CAT-LUN": {
+          "description": "Working lunch, per person",
+          "unit_price": 18.5
+        },
+        "CAT-EVT": {
+          "description": "Event catering package",
+          "unit_price": 1250.0
+        }
+      }
+    }
+  }
+}

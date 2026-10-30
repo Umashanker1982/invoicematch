@@ -1,0 +1,26 @@
+{
+  "_note": "Invoices already processed before this demo.",
+  "invoices": [
+    {
+      "vendor_id": "V-103",
+      "invoice_number": "CF-2026-0901",
+      "invoice_date": "2026-09-01",
+      "po_number": "PO-7703",
+      "total": 4200.0
+    },
+    {
+      "vendor_id": "V-104",
+      "invoice_number": "QC-55102",
+      "invoice_date": "2026-10-10",
+      "po_number": "PO-7716",
+      "total": 1087.5
+    },
+    {
+      "vendor_id": "V-101",
+      "invoice_number": "NOS-30177",
+      "invoice_date": "2026-09-18",
+      "po_number": "PO-7690",
+      "total": 1540.0
+    }
+  ]
+}

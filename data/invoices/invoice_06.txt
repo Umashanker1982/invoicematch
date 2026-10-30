@@ -1,0 +1,15 @@
+E-INVOICE
+SellerName: Summit Print & Design Co.
+SellerAddress: 61 Market Street, Lakeside
+BuyerName: Silverbrook Financial
+InvoiceNumber: SPD-2026-0417
+IssueDate: 14.10.2026
+Order No.: PO-7706
+Currency: USD
+  Line 1: ItemCode=PRT-BR; Description=Brochure print run, 1,000 copies; Quantity=2; UnitPrice=USD 640.00; LineAmount=USD 1,280.00
+TaxAmount: USD 0.00
+ChargeAmount (freight): USD 0.00
+LineTotal: USD 1,280.00
+PayableAmount: USD 1,280.00
+
+PaymentAccount: 9900-1105-6605; RoutingNumber: 999000105

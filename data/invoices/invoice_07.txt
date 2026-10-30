@@ -1,0 +1,15 @@
+From: Brightwell Catering Co. | 27 Orchard Street, Riverton
+To: Silverbrook Financial, Accounts Payable, 500 Riverside Plaza, Springfield
+Invoice #BWC-7731   Date: 2026-10-16   Purchase Order: PO-7707
+
+Items:
+- Working lunch, per person (CAT-LUN) x40 @ $18.50 = $740.00
+- Event catering package (CAT-EVT) x1 @ $1,250.00 = $1,250.00
+
+Subtotal: $1,990.00
+Tax: $119.40
+Delivery fee: $25.00
+Amount due: $2,134.40
+
+
+Remit to: Account 9900-1107-8807, Routing 999000107

@@ -1,0 +1,23 @@
+NORTHGATE OFFICE SUPPLIES INC.
+18 Mill Road, Riverton
+
+INVOICE
+
+Invoice No: NOS-31115
+Invoice Date: 22 Oct 2026
+PO Number: PO-7714
+Bill To: Silverbrook Financial, Accounts Payable
+500 Riverside Plaza, Springfield
+
+Item      Description                          Qty     Unit Price         Amount
+----------------------------------------------------------------------------------
+CHR-450   Ergonomic office chair                   6        $450.00      $2,700.00
+DSK-620   Standing desk                            2        $620.00      $1,240.00
+----------------------------------------------------------------------------------
+                                                           Subtotal      $3,940.00
+                                                            Freight        $140.00
+                                                          TOTAL DUE      $4,080.00
+
+Payment terms: Net 30
+
+Remit to: Account 9900-1101-2201, Routing 999000101

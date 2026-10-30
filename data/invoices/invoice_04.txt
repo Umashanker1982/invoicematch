@@ -1,0 +1,23 @@
+NORTHGATE OFFICE SUPPLIES INC.
+18 Mill Road, Riverton
+
+INVOICE
+
+Invoice No: NOS-31077
+Invoice Date: 09 Oct 2026
+PO Number: PO-7704
+Bill To: Silverbrook Financial, Accounts Payable
+500 Riverside Plaza, Springfield
+
+Item      Description                          Qty     Unit Price         Amount
+----------------------------------------------------------------------------------
+TNR-88    Toner cartridge                          6         $96.00        $576.00
+PAP-A4    Copy paper, box of 10 reams              5         $38.50        $192.50
+----------------------------------------------------------------------------------
+                                                           Subtotal        $768.50
+                                                            Freight         $45.00
+                                                          TOTAL DUE        $813.50
+
+Payment terms: Net 30
+
+Remit to: Account 9900-1101-2201, Routing 999000101

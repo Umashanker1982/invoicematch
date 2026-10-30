@@ -1,0 +1,16 @@
+E-INVOICE
+SellerName: Bluepeak IT Services LLC
+SellerAddress: 740 Commerce Way, Lakeside
+BuyerName: Silverbrook Financial
+InvoiceNumber: BP-88301
+IssueDate: 21.10.2026
+PurchaseOrderReference: PO-7713
+Currency: USD
+  Line 1: ItemCode=MON-27; Description=Monitor 27-inch; Quantity=10; UnitPrice=USD 310.00; LineAmount=USD 3,100.00
+  Line 2: ItemCode=DCK-01; Description=Docking station; Quantity=10; UnitPrice=USD 189.00; LineAmount=USD 1,890.00
+TaxAmount: USD 0.00
+ChargeAmount (freight): USD 85.00
+LineTotal: USD 4,990.00
+PayableAmount: USD 5,075.00
+
+PaymentAccount: 9900-1102-3302; RoutingNumber: 999000102

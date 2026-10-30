@@ -1,0 +1,15 @@
+E-INVOICE
+SellerName: Summit Print & Design Co.
+SellerAddress: 61 Market Street, Lakeside
+BuyerName: Silverbrook Financial
+InvoiceNumber: SPD-2026-0431
+IssueDate: 24.10.2026
+PurchaseOrderReference: PO-7701
+Currency: USD
+  Line 1: ItemCode=PRT-BC; Description=Business cards, box of 500; Quantity=5; UnitPrice=USD 42.00; LineAmount=USD 210.00
+TaxAmount: USD 0.00
+ChargeAmount (freight): USD 0.00
+LineTotal: USD 210.00
+PayableAmount: USD 210.00
+
+PaymentAccount: 9900-1105-6605; RoutingNumber: 999000105

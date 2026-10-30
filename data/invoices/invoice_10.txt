@@ -1,0 +1,16 @@
+E-INVOICE
+SellerName: Lumen Data Analytics LLC
+SellerAddress: 1 Innovation Drive, Springfield
+BuyerName: Silverbrook Financial
+InvoiceNumber: LDA-1121
+IssueDate: 21.10.2026
+PurchaseOrderReference: PO-7710
+Currency: USD
+  Line 1: ItemCode=CNS-MS; Description=Analytics project milestone; Quantity=5; UnitPrice=USD 24,000.00; LineAmount=USD 120,000.00
+  Line 2: ItemCode=CNS-DAY; Description=Senior consultant day; Quantity=4; UnitPrice=USD 1,600.00; LineAmount=USD 6,400.00
+TaxAmount: USD 0.00
+ChargeAmount (freight): USD 0.00
+LineTotal: USD 126,400.00
+PayableAmount: USD 126,400.00
+
+PaymentAccount: 9900-1106-7706; RoutingNumber: 999000106

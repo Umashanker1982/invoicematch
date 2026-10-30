@@ -1,0 +1,61 @@
+{
+  "_note": "Sample data, made up for this project.",
+  "vendors": {
+    "V-101": {
+      "name": "Northgate Office Supplies Inc.",
+      "address": "18 Mill Road, Riverton",
+      "bank": {
+        "routing": "999000101",
+        "account": "9900-1101-2201"
+      }
+    },
+    "V-102": {
+      "name": "Bluepeak IT Services LLC",
+      "address": "740 Commerce Way, Lakeside",
+      "bank": {
+        "routing": "999000102",
+        "account": "9900-1102-3302"
+      }
+    },
+    "V-103": {
+      "name": "Cedarline Facility Services",
+      "address": "9 Elm Court, Riverton",
+      "bank": {
+        "routing": "999000103",
+        "account": "9900-1103-4403"
+      }
+    },
+    "V-104": {
+      "name": "Quayside Courier Services",
+      "address": "3 Dockside Lane, Port Avery",
+      "bank": {
+        "routing": "999000104",
+        "account": "9900-1104-5504"
+      }
+    },
+    "V-105": {
+      "name": "Summit Print & Design Co.",
+      "address": "61 Market Street, Lakeside",
+      "bank": {
+        "routing": "999000105",
+        "account": "9900-1105-6605"
+      }
+    },
+    "V-106": {
+      "name": "Lumen Data Analytics LLC",
+      "address": "1 Innovation Drive, Springfield",
+      "bank": {
+        "routing": "999000106",
+        "account": "9900-1106-7706"
+      }
+    },
+    "V-107": {
+      "name": "Brightwell Catering Co.",
+      "address": "27 Orchard Street, Riverton",
+      "bank": {
+        "routing": "999000107",
+        "account": "9900-1107-8807"
+      }
+    }
+  }
+}

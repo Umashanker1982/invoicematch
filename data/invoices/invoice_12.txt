@@ -1,0 +1,12 @@
+From: Northgate Office Supplies Inc. | 18 Mill Road, Riverton
+To: Silverbrook Financial, Accounts Payable, 500 Riverside Plaza, Springfield
+Invoice #NOS-31102   Date: 2026-10-20   Purchase Order: PO-7712
+
+Items:
+- Ergonomic office chair (CHR-450) x12 @ $450.00 = $5,400.00
+
+Subtotal: $5,400.00
+Amount due: $5,400.00
+
+
+Remit to: Account 9900-1101-2201, Routing 999000101
