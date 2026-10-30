@@ -166,7 +166,7 @@ def extract_with_rules(doc: ParsedDocument) -> InvoiceFields:
     vendor = _first([r"^SellerName:\s*(.+)$", r"^From:\s*([^|\n]+?)\s*(?:\||$)"], t)
     if not vendor:
         first = next((ln.strip() for ln in t.splitlines() if ln.strip()), None)
-        vendor = first.title() if first and first.isupper() else first
+        vendor = first
     inv_no = _first([r"InvoiceNumber:\s*(\S+)", r"Invoice\s*(?:No\.?|Number)\s*:\s*(\S+)", r"Invoice\s*#\s*(\S+)",
                      r"our invoice\s+(\S+)\s+for"], t)
     raw_date = _first([r"IssueDate:\s*(.+?)\s*$", r"Invoice Date:\s*(.+?)(?:\s{2,}|$)", r"\bDate:\s*(\S+)",

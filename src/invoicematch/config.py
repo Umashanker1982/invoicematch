@@ -57,6 +57,10 @@ class Settings:
     llm_max_retries: int
     price_input_per_mtok: float = 0.10
     price_output_per_mtok: float = 0.50
+    # Approval limits (Delegation of Authority). Changing them requires Compliance sign-off.
+    auto_approve_limit: float = 10_000.0
+    ap_manager_limit: float = 25_000.0
+    controller_limit: float = 100_000.0
     warning: str | None = None
 
     @property
@@ -91,5 +95,8 @@ def load_settings(dotenv: bool = True) -> Settings:
         llm_max_retries=_int("LLM_MAX_RETRIES", 1),
         price_input_per_mtok=_float("PRICE_INPUT_PER_MTOK", 0.10),
         price_output_per_mtok=_float("PRICE_OUTPUT_PER_MTOK", 0.50),
+        auto_approve_limit=_float("AUTO_APPROVE_LIMIT", 10_000.0),
+        ap_manager_limit=_float("AP_MANAGER_LIMIT", 25_000.0),
+        controller_limit=_float("CONTROLLER_LIMIT", 100_000.0),
         warning=warning,
     )
