@@ -1,0 +1,13 @@
+Summit Print & Design Co.
+INVOICE NUMBER: SPD-2026-0450
+INVOICE DATE: 23 October 2026
+PO REFERENCE: PO-7720
+
+QTY  ITEM CODE  DESCRIPTION                         UNIT PRICE   AMOUNT
+1    PRT-BR     Brochure print run, 1,000 copies    $640.00      $640.00
+5    PRT-BC     Business cards, box of 500          $42.00       $210.00
+
+SUBTOTAL                 $850.00
+SHIPPING AND HANDLING    $38.00
+TOTAL                    $888.00
+Remit to account 9900-1105-6605, routing 999000105

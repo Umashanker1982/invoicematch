@@ -1,0 +1,349 @@
+{
+  "_note": "Held-out set: new layouts written after the rules reader was built. Expected answers decided by hand.",
+  "cases": [
+    {
+      "id": "H01",
+      "file": "data/holdout/holdout_01.txt",
+      "title": "Pipe table, 'Customer PO: PO 7712' with a space, date 2026/10/20",
+      "expected_fields": {
+        "vendor": "Northgate Office Supplies Inc.",
+        "invoice_number": "NOS-31160",
+        "invoice_date": "2026-10-20",
+        "po_number": "PO-7712",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "CHR-450",
+            "quantity": 4,
+            "unit_price": 450.0
+          }
+        ],
+        "subtotal": 1800.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 1800.0,
+        "bank_account": "9900-1101-2201"
+      },
+      "expected_route": "auto_approve",
+      "expected_failed_rules": [],
+      "controller_signoff": false
+    },
+    {
+      "id": "H02",
+      "file": "data/holdout/holdout_02.txt",
+      "title": "Prose statement, quantities in words, PO as 'purchase order 7702'",
+      "expected_fields": {
+        "vendor": "Bluepeak IT Services LLC",
+        "invoice_number": "BP-88340",
+        "invoice_date": "2026-10-21",
+        "po_number": "PO-7702",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "LAP-14",
+            "quantity": 5,
+            "unit_price": 1450.0
+          },
+          {
+            "sku": "DCK-01",
+            "quantity": 5,
+            "unit_price": 189.0
+          }
+        ],
+        "subtotal": 8195.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 8195.0,
+        "bank_account": "9900-1102-3302"
+      },
+      "expected_route": "auto_approve",
+      "expected_failed_rules": [],
+      "controller_signoff": false
+    },
+    {
+      "id": "H03",
+      "file": "data/holdout/holdout_03.txt",
+      "title": "Service invoice, 'Your order reference', date 15-Oct-2026, 'VAT/Sales tax'",
+      "expected_fields": {
+        "vendor": "Cedarline Facility Services",
+        "invoice_number": "CF-2026-1015",
+        "invoice_date": "2026-10-15",
+        "po_number": "PO-7718",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "CLN-DP",
+            "quantity": 3,
+            "unit_price": 850.0
+          }
+        ],
+        "subtotal": 2550.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 2550.0,
+        "bank_account": "9900-1103-4403"
+      },
+      "expected_route": "auto_approve",
+      "expected_failed_rules": [],
+      "controller_signoff": false
+    },
+    {
+      "id": "H04",
+      "file": "data/holdout/holdout_04.txt",
+      "title": "Tab-separated columns, 'P/O:', date 'Oct. 22 2026'",
+      "expected_fields": {
+        "vendor": "Quayside Courier Services",
+        "invoice_number": "QC-55201",
+        "invoice_date": "2026-10-22",
+        "po_number": "PO-7725",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "CUR-EX",
+            "quantity": 10,
+            "unit_price": 29.0
+          }
+        ],
+        "subtotal": 290.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 290.0,
+        "bank_account": "9900-1104-5504"
+      },
+      "expected_route": "auto_approve",
+      "expected_failed_rules": [],
+      "controller_signoff": false
+    },
+    {
+      "id": "H05",
+      "file": "data/holdout/holdout_05.txt",
+      "title": "Upper-case labels, quantity first, 'SHIPPING AND HANDLING' within the cap",
+      "expected_fields": {
+        "vendor": "Summit Print & Design Co.",
+        "invoice_number": "SPD-2026-0450",
+        "invoice_date": "2026-10-23",
+        "po_number": "PO-7720",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "PRT-BR",
+            "quantity": 1,
+            "unit_price": 640.0
+          },
+          {
+            "sku": "PRT-BC",
+            "quantity": 5,
+            "unit_price": 42.0
+          }
+        ],
+        "subtotal": 850.0,
+        "tax": 0.0,
+        "freight": 38.0,
+        "total_amount": 888.0,
+        "bank_account": "9900-1105-6605"
+      },
+      "expected_route": "auto_approve",
+      "expected_failed_rules": [],
+      "controller_signoff": false
+    },
+    {
+      "id": "H06",
+      "file": "data/holdout/holdout_06.txt",
+      "title": "Dotted leader lines, no currency symbol, 'Delivery charge' at the cap",
+      "expected_fields": {
+        "vendor": "Brightwell Catering Co.",
+        "invoice_number": "BWC-7760",
+        "invoice_date": "2026-10-24",
+        "po_number": "PO-7707",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "CAT-EVT",
+            "quantity": 1,
+            "unit_price": 1250.0
+          }
+        ],
+        "subtotal": 1250.0,
+        "tax": 0.0,
+        "freight": 60.0,
+        "total_amount": 1310.0,
+        "bank_account": "9900-1107-8807"
+      },
+      "expected_route": "auto_approve",
+      "expected_failed_rules": [],
+      "controller_signoff": false
+    },
+    {
+      "id": "H07",
+      "file": "data/holdout/holdout_07.txt",
+      "title": "'Statement of charges' wording, unit cost above contract",
+      "expected_fields": {
+        "vendor": "Northgate Office Supplies Inc.",
+        "invoice_number": "NOS-31172",
+        "invoice_date": "2026-10-26",
+        "po_number": "PO-7723",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "DSK-620",
+            "quantity": 4,
+            "unit_price": 655.0
+          }
+        ],
+        "subtotal": 2620.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 2620.0,
+        "bank_account": "9900-1101-2201"
+      },
+      "expected_route": "review",
+      "expected_failed_rules": [
+        "M-4"
+      ],
+      "controller_signoff": false
+    },
+    {
+      "id": "H08",
+      "file": "data/holdout/holdout_08.txt",
+      "title": "'Freight & insurance' charged to a vendor whose contract does not allow freight",
+      "expected_fields": {
+        "vendor": "Bluepeak IT Services LLC",
+        "invoice_number": "BP-88351",
+        "invoice_date": "2026-10-27",
+        "po_number": "PO-7713",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "MON-27",
+            "quantity": 2,
+            "unit_price": 310.0
+          }
+        ],
+        "subtotal": 620.0,
+        "tax": 0.0,
+        "freight": 120.0,
+        "total_amount": 740.0,
+        "bank_account": "9900-1102-3302"
+      },
+      "expected_route": "review",
+      "expected_failed_rules": [
+        "M-5"
+      ],
+      "controller_signoff": false
+    },
+    {
+      "id": "H09",
+      "file": "data/holdout/holdout_09.txt",
+      "title": "Professional services: 'Days worked' and 'Day rate', $16,000",
+      "expected_fields": {
+        "vendor": "Lumen Data Analytics LLC",
+        "invoice_number": "LDA-1140",
+        "invoice_date": "2026-10-28",
+        "po_number": "PO-7722",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "CNS-DAY",
+            "quantity": 10,
+            "unit_price": 1600.0
+          }
+        ],
+        "subtotal": 16000.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 16000.0,
+        "bank_account": "9900-1106-7706"
+      },
+      "expected_route": "approval_ap_manager",
+      "expected_failed_rules": [],
+      "controller_signoff": false
+    },
+    {
+      "id": "H10",
+      "file": "data/holdout/holdout_10.txt",
+      "title": "One-line layout re-sending an invoice that was already paid",
+      "expected_fields": {
+        "vendor": "Quayside Courier Services",
+        "invoice_number": "QC-55102",
+        "invoice_date": "2026-10-10",
+        "po_number": "PO-7716",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "CUR-ST",
+            "quantity": 75,
+            "unit_price": 14.5
+          }
+        ],
+        "subtotal": 1087.5,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 1087.5,
+        "bank_account": "9900-1104-5504"
+      },
+      "expected_route": "review",
+      "expected_failed_rules": [
+        "M-7"
+      ],
+      "controller_signoff": false
+    },
+    {
+      "id": "H11",
+      "file": "data/holdout/holdout_11.txt",
+      "title": "'Please note our new bank account' (possible fraud)",
+      "expected_fields": {
+        "vendor": "Brightwell Catering Co.",
+        "invoice_number": "BWC-7766",
+        "invoice_date": "2026-10-28",
+        "po_number": "PO-7715",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "CAT-LUN",
+            "quantity": 30,
+            "unit_price": 18.5
+          }
+        ],
+        "subtotal": 555.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 555.0,
+        "bank_account": "7731-0042-1189"
+      },
+      "expected_route": "security_review",
+      "expected_failed_rules": [
+        "M-9"
+      ],
+      "controller_signoff": false
+    },
+    {
+      "id": "H12",
+      "file": "data/holdout/holdout_12.txt",
+      "title": "Arrow notation, quantity above the PO",
+      "expected_fields": {
+        "vendor": "Summit Print & Design Co.",
+        "invoice_number": "SPD-2026-0458",
+        "invoice_date": "2026-10-29",
+        "po_number": "PO-7711",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "PRT-BC",
+            "quantity": 25,
+            "unit_price": 42.0
+          }
+        ],
+        "subtotal": 1050.0,
+        "tax": 0.0,
+        "freight": 0.0,
+        "total_amount": 1050.0,
+        "bank_account": "9900-1105-6605"
+      },
+      "expected_route": "review",
+      "expected_failed_rules": [
+        "M-3"
+      ],
+      "controller_signoff": false
+    }
+  ]
+}

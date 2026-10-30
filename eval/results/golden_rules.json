@@ -1,0 +1,602 @@
+{
+  "summary": {
+    "set": "golden",
+    "mode": "rules",
+    "model": null,
+    "run_at": "2026-10-30T18:14:49+00:00",
+    "invoices": 28,
+    "field_accuracy": 1.0,
+    "invoices_fully_read": 28,
+    "bank_details_read": 28,
+    "decision_accuracy": 1.0,
+    "correct_decisions": 28,
+    "wrong_auto_approvals": 0,
+    "missed_exceptions": 0,
+    "false_exceptions": 0,
+    "no_touch_rate": 0.2857,
+    "review_rate": 0.6071,
+    "read_by": {
+      "rules": 28
+    },
+    "fallbacks": 0,
+    "ai_cost_total_usd": 0.0,
+    "ai_cost_per_invoice_usd": 0.0,
+    "ai_latency_p50_ms": 0,
+    "ai_latency_p95_ms": 0,
+    "total_seconds": 2.4
+  },
+  "cases": [
+    {
+      "id": 1,
+      "title": "Clean invoice, small amount",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 3.3
+    },
+    {
+      "id": 2,
+      "title": "Clean IT invoice under $10,000",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.1
+    },
+    {
+      "id": 3,
+      "title": "Monthly service invoice (same amount as last month, not a duplicate)",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.4
+    },
+    {
+      "id": 4,
+      "title": "Freight charged, allowed by contract and under the cap",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.0
+    },
+    {
+      "id": 5,
+      "title": "Unusual layout: PO given as 'Your ref', long date format",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 6,
+      "title": "E-invoice style with day.month.year date and 'Order No.'",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.0
+    },
+    {
+      "id": 7,
+      "title": "Invoice with sales tax and delivery fee",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.0
+    },
+    {
+      "id": 8,
+      "title": "Matched, $10,000-$25,000: AP Manager approval",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "approval_ap_manager",
+      "route": "approval_ap_manager",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 9,
+      "title": "Matched, over $25,000: Finance Controller approval",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "approval_finance_controller",
+      "route": "approval_finance_controller",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    },
+    {
+      "id": 10,
+      "title": "Matched, over $100,000: CFO approval",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "approval_cfo",
+      "route": "approval_cfo",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.1
+    },
+    {
+      "id": 11,
+      "title": "Unit price above contract price",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-4"
+      ],
+      "failed": [
+        "M-4"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 12,
+      "title": "Quantity above what was ordered",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-3"
+      ],
+      "failed": [
+        "M-3"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 13,
+      "title": "Shipping charged, but the contract does not allow it",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-5"
+      ],
+      "failed": [
+        "M-5"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.0
+    },
+    {
+      "id": 14,
+      "title": "Freight above the contract cap",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-5"
+      ],
+      "failed": [
+        "M-5"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.1
+    },
+    {
+      "id": 15,
+      "title": "Lines do not add up to the total",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-6"
+      ],
+      "failed": [
+        "M-6"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 16,
+      "title": "PO number does not exist",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-1"
+      ],
+      "failed": [
+        "M-1"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 17,
+      "title": "PO is already closed",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-1"
+      ],
+      "failed": [
+        "M-1"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    },
+    {
+      "id": 18,
+      "title": "Invoice vendor is not the PO's vendor",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-2"
+      ],
+      "failed": [
+        "M-2"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    },
+    {
+      "id": 19,
+      "title": "Exact duplicate: last month's invoice sent again",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-7"
+      ],
+      "failed": [
+        "M-7"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 20,
+      "title": "Possible duplicate: new number, same PO and total 4 days later",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-7"
+      ],
+      "failed": [
+        "M-7"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    },
+    {
+      "id": 21,
+      "title": "Invoice in euros (release 1 is USD only)",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-8"
+      ],
+      "failed": [
+        "M-8"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    },
+    {
+      "id": 22,
+      "title": "Bank account differs from the vendor master (possible fraud)",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "security_review",
+      "route": "security_review",
+      "expected_failed": [
+        "M-9"
+      ],
+      "failed": [
+        "M-9"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 23,
+      "title": "No PO number on the invoice",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-1"
+      ],
+      "failed": [
+        "M-1"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 24,
+      "title": "Damaged invoice: total and lines cannot be read",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-10"
+      ],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.6
+    },
+    {
+      "id": 25,
+      "title": "Hidden instruction in the invoice text, plus a price above contract",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-4"
+      ],
+      "failed": [
+        "M-4"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 26,
+      "title": "High-value mismatch: day rate above contract on a $35,000 invoice",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-4"
+      ],
+      "failed": [
+        "M-4"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 27,
+      "title": "Partial delivery: 5 of 10 desks invoiced",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": 28,
+      "title": "Partial delivery: invoices more than is left on the PO",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-3"
+      ],
+      "failed": [
+        "M-3"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.7
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+NORTHGATE OFFICE SUPPLIES INC. - TAX INVOICE
+Doc ref: NOS-31160          Issued: 2026/10/20
+Customer: Silverbrook Financial (Accounts Payable)
+Customer PO: PO 7712
+
+| Code    | Item                    | Qty | Price    | Total     |
+|---------|-------------------------|-----|----------|-----------|
+| CHR-450 | Ergonomic office chair  | 4   | 450.00   | 1,800.00  |
+
+Net amount: 1,800.00
+Sales tax: 0.00
+Invoice total (USD): 1,800.00
+Pay to: Northgate Office Supplies Inc., Account 9900-1101-2201, Routing 999000101

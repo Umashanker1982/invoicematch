@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Check that the sample data matches its generators
+        run: |
+          python scripts/make_sample_data.py
+          python scripts/make_holdout_data.py
+          git diff --exit-code -- data eval/golden_set.json eval/holdout_set.json
+      - name: Unit and integration tests (offline, no API key)
+        run: python -m pytest -q
+      - name: Regression gate on the main sample set (>= 95% correct decisions, 0 wrong auto-approvals)
+        run: python eval/benchmark.py --set golden --mode rules --gate --no-save
+      - name: Safety gate on the held-out set (0 wrong auto-approvals, even when invoices cannot be read)
+        run: python eval/benchmark.py --set holdout --mode rules --safety-gate --no-save

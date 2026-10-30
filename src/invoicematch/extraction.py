@@ -81,6 +81,14 @@ def normalize_date(s: str | None) -> str | None:
     return None
 
 
+def normalize_po(value: str) -> str:
+    """ERP purchase orders look like PO-7701. Accept 'PO 7701', 'po#7701', 'P.O. 7701', or just '7701'."""
+    v = re.sub(r"\s+", "", value).upper()
+    if m := re.fullmatch(r"(?:P\.?O\.?)?[-#:./]?(\d{3,8})", v):
+        return f"PO-{m.group(1)}"
+    return v
+
+
 def _number_in_text(value: float, text: str) -> bool:
     """True if the amount is printed in the text, in any common format."""
     candidates = {f"{value:,.2f}", f"{value:.2f}", f"{value:,.1f}", f"{value:g}"}
@@ -95,7 +103,7 @@ def _normalize(fields: InvoiceFields) -> InvoiceFields:
         v = getattr(f, name)
         setattr(f, name, v.strip() if isinstance(v, str) and v.strip() else None)
     if f.po_number:
-        f.po_number = re.sub(r"\s+", "", f.po_number).upper()
+        f.po_number = normalize_po(f.po_number)
     f.invoice_date = normalize_date(f.invoice_date) if f.invoice_date else None
     f.currency = (f.currency or "").strip().upper()[:3] or None
     for name in ("subtotal", "tax", "freight", "total_amount"):
@@ -111,10 +119,16 @@ def ground(fields: InvoiceFields, text: str) -> tuple[InvoiceFields, list[str]]:
     """Discard key values that do not appear in the invoice text (protects against made-up values)."""
     f = fields.model_copy(deep=True)
     issues: list[str] = []
-    compact = re.sub(r"\s+", "", text).upper()
+    compact = re.sub(r"[^A-Z0-9]", "", text.upper())
     for name in ("invoice_number", "po_number"):
         v = getattr(f, name)
-        if v and re.sub(r"\s+", "", v).upper() not in compact:
+        if not v:
+            continue
+        key = re.sub(r"[^A-Z0-9]", "", v.upper())
+        found = key in compact
+        if not found and name == "po_number" and (digits := re.sub(r"\D", "", v)):
+            found = re.search(rf"(?<!\d){digits}(?!\d)", text) is not None
+        if not found:
             issues.append(f"{name.replace('_', ' ')} '{v}' was not found in the invoice text and was discarded")
             setattr(f, name, None)
     for name in ("subtotal", "total_amount"):
@@ -172,6 +186,7 @@ def extract_with_rules(doc: ParsedDocument) -> InvoiceFields:
     raw_date = _first([r"IssueDate:\s*(.+?)\s*$", r"Invoice Date:\s*(.+?)(?:\s{2,}|$)", r"\bDate:\s*(\S+)",
                        r"^\s*([A-Z][a-z]+ \d{1,2}, \d{4})\s*$", r"^\s*(\d{1,2}/\d{1,2}/\d{4})\s*$"], t)
     po = _first([r"\b(PO-\d{3,6})\b"], t)
+    po = normalize_po(po) if po else None
     currency = _first([r"^Currency:\s*([A-Z]{3})"], t) or ("EUR" if re.search(r"\bEUR\s?\d", t) else "USD")
 
     lines: list[InvoiceLine] = []

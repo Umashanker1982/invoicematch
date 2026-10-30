@@ -1,0 +1,266 @@
+{
+  "summary": {
+    "set": "holdout",
+    "mode": "claude",
+    "model": "claude-haiku-5-5",
+    "run_at": "2026-10-30T18:16:55+00:00",
+    "invoices": 12,
+    "field_accuracy": 1.0,
+    "invoices_fully_read": 12,
+    "bank_details_read": 12,
+    "decision_accuracy": 1.0,
+    "correct_decisions": 12,
+    "wrong_auto_approvals": 0,
+    "missed_exceptions": 0,
+    "false_exceptions": 0,
+    "no_touch_rate": 0.5,
+    "review_rate": 0.4167,
+    "read_by": {
+      "claude": 12
+    },
+    "fallbacks": 0,
+    "ai_cost_total_usd": 0.00236,
+    "ai_cost_per_invoice_usd": 0.000197,
+    "ai_latency_p50_ms": 1793,
+    "ai_latency_p95_ms": 2819,
+    "total_seconds": 24.0
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "title": "Pipe table, 'Customer PO: PO 7712' with a space, date 2026/10/20",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000176,
+      "ms": 2335.0
+    },
+    {
+      "id": "H02",
+      "title": "Prose statement, quantities in words, PO as 'purchase order 7702'",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000191,
+      "ms": 1748.2
+    },
+    {
+      "id": "H03",
+      "title": "Service invoice, 'Your order reference', date 15-Oct-2026, 'VAT/Sales tax'",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000169,
+      "ms": 1795.9
+    },
+    {
+      "id": "H04",
+      "title": "Tab-separated columns, 'P/O:', date 'Oct. 22 2026'",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000157,
+      "ms": 1563.3
+    },
+    {
+      "id": "H05",
+      "title": "Upper-case labels, quantity first, 'SHIPPING AND HANDLING' within the cap",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000305,
+      "ms": 2821.4
+    },
+    {
+      "id": "H06",
+      "title": "Dotted leader lines, no currency symbol, 'Delivery charge' at the cap",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "auto_approve",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000166,
+      "ms": 1426.1
+    },
+    {
+      "id": "H07",
+      "title": "'Statement of charges' wording, unit cost above contract",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-4"
+      ],
+      "failed": [
+        "M-4"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000256,
+      "ms": 2282.2
+    },
+    {
+      "id": "H08",
+      "title": "'Freight & insurance' charged to a vendor whose contract does not allow freight",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-5"
+      ],
+      "failed": [
+        "M-5"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000164,
+      "ms": 1581.9
+    },
+    {
+      "id": "H09",
+      "title": "Professional services: 'Days worked' and 'Day rate', $16,000",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "approval_ap_manager",
+      "route": "approval_ap_manager",
+      "expected_failed": [],
+      "failed": [],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000167,
+      "ms": 1979.5
+    },
+    {
+      "id": "H10",
+      "title": "One-line layout re-sending an invoice that was already paid",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-7"
+      ],
+      "failed": [
+        "M-7"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000293,
+      "ms": 3301.0
+    },
+    {
+      "id": "H11",
+      "title": "'Please note our new bank account' (possible fraud)",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "security_review",
+      "route": "security_review",
+      "expected_failed": [
+        "M-9"
+      ],
+      "failed": [
+        "M-9"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000159,
+      "ms": 1625.0
+    },
+    {
+      "id": "H12",
+      "title": "Arrow notation, quantity above the PO",
+      "read_by": "claude",
+      "fallback_reason": null,
+      "fields_wrong": [],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-3"
+      ],
+      "failed": [
+        "M-3"
+      ],
+      "decision_ok": true,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.000162,
+      "ms": 1457.0
+    }
+  ]
+}

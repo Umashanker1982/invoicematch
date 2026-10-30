@@ -1,0 +1,13 @@
+CEDARLINE FACILITY SERVICES
+Service Invoice
+Ref: CF-2026-1015                Date of issue: 15-Oct-2026
+Your order reference: PO-7718
+
+Description                                   Units    Rate       Line total
+Deep clean, per floor (code CLN-DP)               3     850.00      2,550.00
+
+Subtotal                                                            2,550.00
+VAT/Sales tax                                                           0.00
+Total payable (USD)                                                 2,550.00
+
+Bank: account no. 9900-1103-4403, routing no. 999000103

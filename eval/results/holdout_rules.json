@@ -1,0 +1,365 @@
+{
+  "summary": {
+    "set": "holdout",
+    "mode": "rules",
+    "model": null,
+    "run_at": "2026-10-30T18:14:49+00:00",
+    "invoices": 12,
+    "field_accuracy": 0.3917,
+    "invoices_fully_read": 0,
+    "bank_details_read": 12,
+    "decision_accuracy": 0.0,
+    "correct_decisions": 0,
+    "wrong_auto_approvals": 0,
+    "missed_exceptions": 0,
+    "false_exceptions": 7,
+    "no_touch_rate": 0.0,
+    "review_rate": 1.0,
+    "read_by": {
+      "rules": 12
+    },
+    "fallbacks": 0,
+    "ai_cost_total_usd": 0.0,
+    "ai_cost_per_invoice_usd": 0.0,
+    "ai_latency_p50_ms": 0,
+    "ai_latency_p95_ms": 0,
+    "total_seconds": 0.0
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "title": "Pipe table, 'Customer PO: PO 7712' with a space, date 2026/10/20",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "vendor",
+        "invoice_number",
+        "invoice_date",
+        "po_number",
+        "subtotal",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "review",
+      "expected_failed": [],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": true,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    },
+    {
+      "id": "H02",
+      "title": "Prose statement, quantities in words, PO as 'purchase order 7702'",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "invoice_number",
+        "invoice_date",
+        "po_number",
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "review",
+      "expected_failed": [],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": true,
+      "cost_usd": 0.0,
+      "ms": 0.7
+    },
+    {
+      "id": "H03",
+      "title": "Service invoice, 'Your order reference', date 15-Oct-2026, 'VAT/Sales tax'",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "invoice_number",
+        "invoice_date",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "review",
+      "expected_failed": [],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": true,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": "H04",
+      "title": "Tab-separated columns, 'P/O:', date 'Oct. 22 2026'",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "vendor",
+        "invoice_number",
+        "invoice_date",
+        "subtotal",
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "review",
+      "expected_failed": [],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": true,
+      "cost_usd": 0.0,
+      "ms": 0.7
+    },
+    {
+      "id": "H05",
+      "title": "Upper-case labels, quantity first, 'SHIPPING AND HANDLING' within the cap",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "review",
+      "expected_failed": [],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": true,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    },
+    {
+      "id": "H06",
+      "title": "Dotted leader lines, no currency symbol, 'Delivery charge' at the cap",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "invoice_number",
+        "invoice_date",
+        "subtotal",
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "auto_approve",
+      "route": "review",
+      "expected_failed": [],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": true,
+      "cost_usd": 0.0,
+      "ms": 0.7
+    },
+    {
+      "id": "H07",
+      "title": "'Statement of charges' wording, unit cost above contract",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "invoice_number",
+        "invoice_date",
+        "tax",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-4"
+      ],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.7
+    },
+    {
+      "id": "H08",
+      "title": "'Freight & insurance' charged to a vendor whose contract does not allow freight",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "invoice_number",
+        "subtotal",
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-5"
+      ],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 1.4
+    },
+    {
+      "id": "H09",
+      "title": "Professional services: 'Days worked' and 'Day rate', $16,000",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "invoice_number",
+        "subtotal",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "approval_ap_manager",
+      "route": "review",
+      "expected_failed": [],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": true,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": "H10",
+      "title": "One-line layout re-sending an invoice that was already paid",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "invoice_number",
+        "invoice_date",
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-7"
+      ],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.7
+    },
+    {
+      "id": "H11",
+      "title": "'Please note our new bank account' (possible fraud)",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "vendor",
+        "invoice_number",
+        "invoice_date",
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "security_review",
+      "route": "review",
+      "expected_failed": [
+        "M-9"
+      ],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.9
+    },
+    {
+      "id": "H12",
+      "title": "Arrow notation, quantity above the PO",
+      "read_by": "rules",
+      "fallback_reason": null,
+      "fields_wrong": [
+        "vendor",
+        "invoice_number",
+        "invoice_date",
+        "tax",
+        "freight",
+        "total_amount",
+        "lines"
+      ],
+      "bank_ok": true,
+      "expected_route": "review",
+      "route": "review",
+      "expected_failed": [
+        "M-3"
+      ],
+      "failed": [
+        "M-10"
+      ],
+      "decision_ok": false,
+      "wrong_auto_approval": false,
+      "missed_exception": false,
+      "false_exception": false,
+      "cost_usd": 0.0,
+      "ms": 0.8
+    }
+  ]
+}

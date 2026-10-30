@@ -20,7 +20,7 @@ MAX_CHARS = 20_000
 REDACTED = "[bank details removed]"
 
 _ACCOUNT_RE = re.compile(r"\b(?:Payment)?Account(?:\s*(?:No\.?|Number))?\s*[:#]?\s*([0-9][0-9 -]{5,}[0-9])", re.I)
-_ROUTING_RE = re.compile(r"\bRouting(?:\s*Number|Number)?\s*[:#]?\s*([0-9]{9})\b", re.I)
+_ROUTING_RE = re.compile(r"\bRouting(?:\s*(?:No\.?|Number)|Number)?\s*[:#]?\s*([0-9]{9})\b", re.I)
 _INVISIBLE_RE = re.compile(r"[​-‏‪-‮⁠-⁤﻿]")
 
 
