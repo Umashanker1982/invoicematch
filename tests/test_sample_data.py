@@ -44,13 +44,13 @@ def test_reference_data_is_consistent():
 def test_totals_add_up_except_the_deliberate_error():
     for g in load("eval/golden_set.json")["cases"]:
         f = g["expected_fields"]
-        if f["total"] is None:
+        if f["total_amount"] is None:
             continue
         computed = round(sum(l["quantity"] * l["unit_price"] for l in f["lines"]) + f["tax"] + f["freight"], 2)
         if "M-6" in g["expected_failed_rules"]:
-            assert computed != f["total"]
+            assert computed != f["total_amount"]
         else:
-            assert computed == f["total"], g["id"]
+            assert computed == f["total_amount"], g["id"]
 
 
 def test_no_real_looking_bank_numbers():

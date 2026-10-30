@@ -6,7 +6,7 @@
       "file": "data/invoices/invoice_01.txt",
       "title": "Clean invoice, small amount",
       "expected_fields": {
-        "vendor_name": "Northgate Office Supplies Inc.",
+        "vendor": "Northgate Office Supplies Inc.",
         "invoice_number": "NOS-31042",
         "invoice_date": "2026-10-06",
         "po_number": "PO-7701",
@@ -14,7 +14,7 @@
         "subtotal": 2185.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 2185.0,
+        "total_amount": 2185.0,
         "lines": [
           {
             "sku": "CHR-450",
@@ -38,7 +38,7 @@
       "file": "data/invoices/invoice_02.txt",
       "title": "Clean IT invoice under $10,000",
       "expected_fields": {
-        "vendor_name": "Bluepeak IT Services LLC",
+        "vendor": "Bluepeak IT Services LLC",
         "invoice_number": "BP-88213",
         "invoice_date": "2026-10-08",
         "po_number": "PO-7702",
@@ -46,7 +46,7 @@
         "subtotal": 8195.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 8195.0,
+        "total_amount": 8195.0,
         "lines": [
           {
             "sku": "LAP-14",
@@ -70,7 +70,7 @@
       "file": "data/invoices/invoice_03.txt",
       "title": "Monthly service invoice (same amount as last month, not a duplicate)",
       "expected_fields": {
-        "vendor_name": "Cedarline Facility Services",
+        "vendor": "Cedarline Facility Services",
         "invoice_number": "CF-2026-1001",
         "invoice_date": "2026-10-01",
         "po_number": "PO-7703",
@@ -78,7 +78,7 @@
         "subtotal": 4200.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 4200.0,
+        "total_amount": 4200.0,
         "lines": [
           {
             "sku": "CLN-MO",
@@ -97,7 +97,7 @@
       "file": "data/invoices/invoice_04.txt",
       "title": "Freight charged, allowed by contract and under the cap",
       "expected_fields": {
-        "vendor_name": "Northgate Office Supplies Inc.",
+        "vendor": "Northgate Office Supplies Inc.",
         "invoice_number": "NOS-31077",
         "invoice_date": "2026-10-09",
         "po_number": "PO-7704",
@@ -105,7 +105,7 @@
         "subtotal": 768.5,
         "tax": 0.0,
         "freight": 45.0,
-        "total": 813.5,
+        "total_amount": 813.5,
         "lines": [
           {
             "sku": "TNR-88",
@@ -129,7 +129,7 @@
       "file": "data/invoices/invoice_05.txt",
       "title": "Unusual layout: PO given as 'Your ref', long date format",
       "expected_fields": {
-        "vendor_name": "Quayside Courier Services",
+        "vendor": "Quayside Courier Services",
         "invoice_number": "QC-55140",
         "invoice_date": "2026-10-15",
         "po_number": "PO-7705",
@@ -137,7 +137,7 @@
         "subtotal": 928.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 928.0,
+        "total_amount": 928.0,
         "lines": [
           {
             "sku": "CUR-ST",
@@ -161,7 +161,7 @@
       "file": "data/invoices/invoice_06.txt",
       "title": "E-invoice style with day.month.year date and 'Order No.'",
       "expected_fields": {
-        "vendor_name": "Summit Print & Design Co.",
+        "vendor": "Summit Print & Design Co.",
         "invoice_number": "SPD-2026-0417",
         "invoice_date": "2026-10-14",
         "po_number": "PO-7706",
@@ -169,7 +169,7 @@
         "subtotal": 1280.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 1280.0,
+        "total_amount": 1280.0,
         "lines": [
           {
             "sku": "PRT-BR",
@@ -188,7 +188,7 @@
       "file": "data/invoices/invoice_07.txt",
       "title": "Invoice with sales tax and delivery fee",
       "expected_fields": {
-        "vendor_name": "Brightwell Catering Co.",
+        "vendor": "Brightwell Catering Co.",
         "invoice_number": "BWC-7731",
         "invoice_date": "2026-10-16",
         "po_number": "PO-7707",
@@ -196,7 +196,7 @@
         "subtotal": 1990.0,
         "tax": 119.4,
         "freight": 25.0,
-        "total": 2134.4,
+        "total_amount": 2134.4,
         "lines": [
           {
             "sku": "CAT-LUN",
@@ -220,7 +220,7 @@
       "file": "data/invoices/invoice_08.txt",
       "title": "Matched, $10,000-$25,000: AP Manager approval",
       "expected_fields": {
-        "vendor_name": "Bluepeak IT Services LLC",
+        "vendor": "Bluepeak IT Services LLC",
         "invoice_number": "BP-88290",
         "invoice_date": "2026-10-19",
         "po_number": "PO-7708",
@@ -228,7 +228,7 @@
         "subtotal": 14080.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 14080.0,
+        "total_amount": 14080.0,
         "lines": [
           {
             "sku": "LAP-14",
@@ -252,7 +252,7 @@
       "file": "data/invoices/invoice_09.txt",
       "title": "Matched, over $25,000: Finance Controller approval",
       "expected_fields": {
-        "vendor_name": "Lumen Data Analytics LLC",
+        "vendor": "Lumen Data Analytics LLC",
         "invoice_number": "LDA-1120",
         "invoice_date": "2026-10-20",
         "po_number": "PO-7709",
@@ -260,7 +260,7 @@
         "subtotal": 48000.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 48000.0,
+        "total_amount": 48000.0,
         "lines": [
           {
             "sku": "CNS-MS",
@@ -279,7 +279,7 @@
       "file": "data/invoices/invoice_10.txt",
       "title": "Matched, over $100,000: CFO approval",
       "expected_fields": {
-        "vendor_name": "Lumen Data Analytics LLC",
+        "vendor": "Lumen Data Analytics LLC",
         "invoice_number": "LDA-1121",
         "invoice_date": "2026-10-21",
         "po_number": "PO-7710",
@@ -287,7 +287,7 @@
         "subtotal": 126400.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 126400.0,
+        "total_amount": 126400.0,
         "lines": [
           {
             "sku": "CNS-MS",
@@ -311,7 +311,7 @@
       "file": "data/invoices/invoice_11.txt",
       "title": "Unit price above contract price",
       "expected_fields": {
-        "vendor_name": "Summit Print & Design Co.",
+        "vendor": "Summit Print & Design Co.",
         "invoice_number": "SPD-2026-0422",
         "invoice_date": "2026-10-17",
         "po_number": "PO-7711",
@@ -319,7 +319,7 @@
         "subtotal": 960.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 960.0,
+        "total_amount": 960.0,
         "lines": [
           {
             "sku": "PRT-BC",
@@ -340,7 +340,7 @@
       "file": "data/invoices/invoice_12.txt",
       "title": "Quantity above what was ordered",
       "expected_fields": {
-        "vendor_name": "Northgate Office Supplies Inc.",
+        "vendor": "Northgate Office Supplies Inc.",
         "invoice_number": "NOS-31102",
         "invoice_date": "2026-10-20",
         "po_number": "PO-7712",
@@ -348,7 +348,7 @@
         "subtotal": 5400.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 5400.0,
+        "total_amount": 5400.0,
         "lines": [
           {
             "sku": "CHR-450",
@@ -369,7 +369,7 @@
       "file": "data/invoices/invoice_13.txt",
       "title": "Shipping charged, but the contract does not allow it",
       "expected_fields": {
-        "vendor_name": "Bluepeak IT Services LLC",
+        "vendor": "Bluepeak IT Services LLC",
         "invoice_number": "BP-88301",
         "invoice_date": "2026-10-21",
         "po_number": "PO-7713",
@@ -377,7 +377,7 @@
         "subtotal": 4990.0,
         "tax": 0.0,
         "freight": 85.0,
-        "total": 5075.0,
+        "total_amount": 5075.0,
         "lines": [
           {
             "sku": "MON-27",
@@ -403,7 +403,7 @@
       "file": "data/invoices/invoice_14.txt",
       "title": "Freight above the contract cap",
       "expected_fields": {
-        "vendor_name": "Northgate Office Supplies Inc.",
+        "vendor": "Northgate Office Supplies Inc.",
         "invoice_number": "NOS-31115",
         "invoice_date": "2026-10-22",
         "po_number": "PO-7714",
@@ -411,7 +411,7 @@
         "subtotal": 3940.0,
         "tax": 0.0,
         "freight": 140.0,
-        "total": 4080.0,
+        "total_amount": 4080.0,
         "lines": [
           {
             "sku": "CHR-450",
@@ -437,7 +437,7 @@
       "file": "data/invoices/invoice_15.txt",
       "title": "Lines do not add up to the total",
       "expected_fields": {
-        "vendor_name": "Brightwell Catering Co.",
+        "vendor": "Brightwell Catering Co.",
         "invoice_number": "BWC-7740",
         "invoice_date": "2026-10-22",
         "po_number": "PO-7715",
@@ -445,7 +445,7 @@
         "subtotal": 925.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 1025.0,
+        "total_amount": 1025.0,
         "lines": [
           {
             "sku": "CAT-LUN",
@@ -466,7 +466,7 @@
       "file": "data/invoices/invoice_16.txt",
       "title": "PO number does not exist",
       "expected_fields": {
-        "vendor_name": "Quayside Courier Services",
+        "vendor": "Quayside Courier Services",
         "invoice_number": "QC-55160",
         "invoice_date": "2026-10-23",
         "po_number": "PO-7999",
@@ -474,7 +474,7 @@
         "subtotal": 435.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 435.0,
+        "total_amount": 435.0,
         "lines": [
           {
             "sku": "CUR-ST",
@@ -495,7 +495,7 @@
       "file": "data/invoices/invoice_17.txt",
       "title": "PO is already closed",
       "expected_fields": {
-        "vendor_name": "Brightwell Catering Co.",
+        "vendor": "Brightwell Catering Co.",
         "invoice_number": "BWC-7744",
         "invoice_date": "2026-10-23",
         "po_number": "PO-7717",
@@ -503,7 +503,7 @@
         "subtotal": 1250.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 1250.0,
+        "total_amount": 1250.0,
         "lines": [
           {
             "sku": "CAT-EVT",
@@ -524,7 +524,7 @@
       "file": "data/invoices/invoice_18.txt",
       "title": "Invoice vendor is not the PO's vendor",
       "expected_fields": {
-        "vendor_name": "Summit Print & Design Co.",
+        "vendor": "Summit Print & Design Co.",
         "invoice_number": "SPD-2026-0431",
         "invoice_date": "2026-10-24",
         "po_number": "PO-7701",
@@ -532,7 +532,7 @@
         "subtotal": 210.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 210.0,
+        "total_amount": 210.0,
         "lines": [
           {
             "sku": "PRT-BC",
@@ -553,7 +553,7 @@
       "file": "data/invoices/invoice_19.txt",
       "title": "Exact duplicate: last month's invoice sent again",
       "expected_fields": {
-        "vendor_name": "Cedarline Facility Services",
+        "vendor": "Cedarline Facility Services",
         "invoice_number": "CF-2026-0901",
         "invoice_date": "2026-09-01",
         "po_number": "PO-7703",
@@ -561,7 +561,7 @@
         "subtotal": 4200.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 4200.0,
+        "total_amount": 4200.0,
         "lines": [
           {
             "sku": "CLN-MO",
@@ -582,7 +582,7 @@
       "file": "data/invoices/invoice_20.txt",
       "title": "Possible duplicate: new number, same PO and total 4 days later",
       "expected_fields": {
-        "vendor_name": "Quayside Courier Services",
+        "vendor": "Quayside Courier Services",
         "invoice_number": "QC-55188",
         "invoice_date": "2026-10-14",
         "po_number": "PO-7716",
@@ -590,7 +590,7 @@
         "subtotal": 1087.5,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 1087.5,
+        "total_amount": 1087.5,
         "lines": [
           {
             "sku": "CUR-ST",
@@ -611,7 +611,7 @@
       "file": "data/invoices/invoice_21.txt",
       "title": "Invoice in euros (release 1 is USD only)",
       "expected_fields": {
-        "vendor_name": "Bluepeak IT Services LLC",
+        "vendor": "Bluepeak IT Services LLC",
         "invoice_number": "BP-88315",
         "invoice_date": "2026-10-24",
         "po_number": "PO-7719",
@@ -619,7 +619,7 @@
         "subtotal": 4880.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 4880.0,
+        "total_amount": 4880.0,
         "lines": [
           {
             "sku": "LIC-365",
@@ -640,7 +640,7 @@
       "file": "data/invoices/invoice_22.txt",
       "title": "Bank account differs from the vendor master (possible fraud)",
       "expected_fields": {
-        "vendor_name": "Summit Print & Design Co.",
+        "vendor": "Summit Print & Design Co.",
         "invoice_number": "SPD-2026-0435",
         "invoice_date": "2026-10-25",
         "po_number": "PO-7720",
@@ -648,7 +648,7 @@
         "subtotal": 2340.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 2340.0,
+        "total_amount": 2340.0,
         "lines": [
           {
             "sku": "PRT-BR",
@@ -674,7 +674,7 @@
       "file": "data/invoices/invoice_23.txt",
       "title": "No PO number on the invoice",
       "expected_fields": {
-        "vendor_name": "Brightwell Catering Co.",
+        "vendor": "Brightwell Catering Co.",
         "invoice_number": "BWC-7751",
         "invoice_date": "2026-10-26",
         "po_number": null,
@@ -682,7 +682,7 @@
         "subtotal": 370.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 370.0,
+        "total_amount": 370.0,
         "lines": [
           {
             "sku": "CAT-LUN",
@@ -703,7 +703,7 @@
       "file": "data/invoices/invoice_24.txt",
       "title": "Damaged invoice: total and lines cannot be read",
       "expected_fields": {
-        "vendor_name": "Summit Print & Design Co.",
+        "vendor": "Summit Print & Design Co.",
         "invoice_number": "SPD-2026-0440",
         "invoice_date": "2026-10-26",
         "po_number": "PO-7720",
@@ -711,7 +711,7 @@
         "subtotal": null,
         "tax": null,
         "freight": null,
-        "total": null,
+        "total_amount": null,
         "lines": [],
         "bank_account": "9900-1105-6605"
       },
@@ -726,7 +726,7 @@
       "file": "data/invoices/invoice_25.txt",
       "title": "Hidden instruction in the invoice text, plus a price above contract",
       "expected_fields": {
-        "vendor_name": "Northgate Office Supplies Inc.",
+        "vendor": "Northgate Office Supplies Inc.",
         "invoice_number": "NOS-31130",
         "invoice_date": "2026-10-26",
         "po_number": "PO-7721",
@@ -734,7 +734,7 @@
         "subtotal": 1248.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 1248.0,
+        "total_amount": 1248.0,
         "lines": [
           {
             "sku": "TNR-88",
@@ -755,7 +755,7 @@
       "file": "data/invoices/invoice_26.txt",
       "title": "High-value mismatch: day rate above contract on a $35,000 invoice",
       "expected_fields": {
-        "vendor_name": "Lumen Data Analytics LLC",
+        "vendor": "Lumen Data Analytics LLC",
         "invoice_number": "LDA-1133",
         "invoice_date": "2026-10-27",
         "po_number": "PO-7722",
@@ -763,7 +763,7 @@
         "subtotal": 35000.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 35000.0,
+        "total_amount": 35000.0,
         "lines": [
           {
             "sku": "CNS-DAY",
@@ -784,7 +784,7 @@
       "file": "data/invoices/invoice_27.txt",
       "title": "Partial delivery: 5 of 10 desks invoiced",
       "expected_fields": {
-        "vendor_name": "Northgate Office Supplies Inc.",
+        "vendor": "Northgate Office Supplies Inc.",
         "invoice_number": "NOS-31141",
         "invoice_date": "2026-10-27",
         "po_number": "PO-7723",
@@ -792,7 +792,7 @@
         "subtotal": 3100.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 3100.0,
+        "total_amount": 3100.0,
         "lines": [
           {
             "sku": "DSK-620",
@@ -811,7 +811,7 @@
       "file": "data/invoices/invoice_28.txt",
       "title": "Partial delivery: invoices more than is left on the PO",
       "expected_fields": {
-        "vendor_name": "Bluepeak IT Services LLC",
+        "vendor": "Bluepeak IT Services LLC",
         "invoice_number": "BP-88330",
         "invoice_date": "2026-10-27",
         "po_number": "PO-7724",
@@ -819,7 +819,7 @@
         "subtotal": 1240.0,
         "tax": 0.0,
         "freight": 0.0,
-        "total": 1240.0,
+        "total_amount": 1240.0,
         "lines": [
           {
             "sku": "MON-27",

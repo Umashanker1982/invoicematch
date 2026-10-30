@@ -55,6 +55,8 @@ class Settings:
     model: str
     llm_timeout_s: float
     llm_max_retries: int
+    price_input_per_mtok: float = 0.10
+    price_output_per_mtok: float = 0.50
     warning: str | None = None
 
     @property
@@ -87,5 +89,7 @@ def load_settings(dotenv: bool = True) -> Settings:
         model=os.environ.get("CLAUDE_MODEL", "claude-haiku-5-5").strip(),
         llm_timeout_s=_float("LLM_TIMEOUT_S", 20.0),
         llm_max_retries=_int("LLM_MAX_RETRIES", 1),
+        price_input_per_mtok=_float("PRICE_INPUT_PER_MTOK", 0.10),
+        price_output_per_mtok=_float("PRICE_OUTPUT_PER_MTOK", 0.50),
         warning=warning,
     )

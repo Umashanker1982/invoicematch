@@ -328,8 +328,8 @@ PaymentAccount: {bank['account']}; RoutingNumber: {bank['routing']}
 """
 
     expected = {
-        "vendor_name": v["name"], "invoice_number": c["inv"], "invoice_date": c["date"], "po_number": c["po"],
-        "currency": cur, "subtotal": subtotal, "tax": tax, "freight": freight, "total": total,
+        "vendor": v["name"], "invoice_number": c["inv"], "invoice_date": c["date"], "po_number": c["po"],
+        "currency": cur, "subtotal": subtotal, "tax": tax, "freight": freight, "total_amount": total,
         "lines": [{"sku": l["sku"], "quantity": l["quantity"], "unit_price": l["unit_price"]} for l in lines],
         "bank_account": bank["account"],
     }
@@ -350,7 +350,7 @@ TOTAL DUE   $###.##
 
 {bank_line}
 """
-        expected.update({"subtotal": None, "tax": None, "freight": None, "total": None, "lines": []})
+        expected.update({"subtotal": None, "tax": None, "freight": None, "total_amount": None, "lines": []})
     return text.strip() + "\n", expected
 
 
@@ -399,7 +399,7 @@ def main() -> None:
                    "security_review": "Security review (M-9)"}
     rows = "\n".join(
         f"| {g['id']} | `{Path(g['file']).name}` | {VENDORS[c['vendor']]['short']} | {g['title']} | "
-        f"{money(g['expected_fields']['total'], g['expected_fields']['currency']) if g['expected_fields']['total'] is not None else 'unreadable'} | "
+        f"{money(g['expected_fields']['total_amount'], g['expected_fields']['currency']) if g['expected_fields']['total_amount'] is not None else 'unreadable'} | "
         f"{route_names[g['expected_route']]}{' + Controller sign-off' if g['controller_signoff'] else ''} | "
         f"{', '.join(g['expected_failed_rules']) or '-'} |"
         for g, c in zip(golden, CASES))
