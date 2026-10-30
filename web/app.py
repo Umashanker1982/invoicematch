@@ -271,6 +271,14 @@ def process(body: ProcessIn, request: Request, x_visitor: str | None = Header(No
         record = ws.im.audit.records[-2] if len(ws.im.audit.records) >= 2 else None
     if mode == "claude" and item.extraction.llm is not None:
         AI_BREAKER.record(item.extraction.llm.ok)
+    llm = item.extraction.llm
+    # One structured log line per decision (no invoice text, no bank details): feeds dashboards and alerts.
+    log.info(json.dumps({"event": "invoice_decided", "ref": item.ref, "route": item.decision.route,
+                         "rules": item.decision.rule_ids, "read_by": item.extraction.method,
+                         "fallback": bool(item.extraction.fallback_reason), "ai_ok": llm.ok if llm else None,
+                         "ai_ms": llm.latency_ms if llm else None, "ai_cost_usd": llm.cost_usd if llm else 0.0,
+                         "grounding_discards": sum("not found in the invoice text" in i for i in item.extraction.issues),
+                         "breaker": AI_BREAKER.state}))
     result = view(item, record["seq"] if record else None, record["hash"] if record else None)
     result["notice"] = notice or (item.extraction.fallback_reason and
                                   "The AI could not be used for this invoice, so the rules reader took over.")

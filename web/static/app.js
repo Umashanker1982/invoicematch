@@ -231,6 +231,12 @@ function renderResult(r) {
 
   parts.push(h("ul", { class: "reasons" }, r.decision.reasons.map((reason) =>
     h("li", { class: r.decision.failed_rules.length ? "fail" : "ok", text: reason }))));
+  if (r.decision.failed_rules.includes("M-7")) {
+    parts.push(h("div", { class: "notice" },
+      "Checked this invoice before in this demo? Then the duplicate check is working as designed: once an invoice is approved, " +
+      "the same invoice is held. ",
+      h("button", { class: "linkish", text: "Reset my demo", onclick: resetDemo }), " to start fresh."));
+  }
 
   parts.push(h("h2", { text: "The ten checks" }));
   parts.push(h("ul", { class: "checks" }, r.checks.map((c) =>
@@ -432,6 +438,15 @@ function fillHow() {
   $("#repo-link").href = repo;
 }
 
+async function resetDemo() {
+  try {
+    await api("/api/reset", { method: "POST" });
+    toast("Your demo workspace was reset: empty queue, fresh purchase orders, new audit log.");
+    if (state.tab === "audit") loadAudit();
+    refreshQueueCount();
+  } catch (e) { toast(e.message); }
+}
+
 /* ------------------------------------------------------------------ start */
 async function init() {
   document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => showTab(b.dataset.tab)));
@@ -450,10 +465,8 @@ async function init() {
       showVerify(t.verified, `Record #${t.edited_record} was secretly changed to say "auto_approve". ${t.message}`);
     } catch (e) { toast(e.message); }
   });
-  $("#reset-btn").addEventListener("click", async () => {
-    try { await api("/api/reset", { method: "POST" }); toast("Your demo workspace was reset."); loadAudit(); refreshQueueCount(); }
-    catch (e) { toast(e.message); }
-  });
+  $("#reset-btn").addEventListener("click", resetDemo);
+  $("#reset-btn-2").addEventListener("click", resetDemo);
 
   try {
     const [config, samples] = await Promise.all([api("/api/config"), api("/api/samples")]);

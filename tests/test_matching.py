@@ -145,3 +145,11 @@ def test_workspaces_are_isolated():
     a, b = InvoiceMatch(settings=RULES), InvoiceMatch(settings=RULES)
     a.process(invoice(1), mode="rules")
     assert b.process(invoice(1), mode="rules").decision.route == "auto_approve"   # b never saw a's invoice
+
+
+def test_safety_switch_auto_approve_limit_zero_sends_everything_to_people():
+    # Runbook: AUTO_APPROVE_LIMIT=0 stops auto-approval within minutes, without a code change.
+    switched_off = replace(RULES, auto_approve_limit=0.0)
+    for case in GOLDEN:
+        item = InvoiceMatch(settings=switched_off).process((ROOT / case["file"]).read_text(encoding="utf-8"), mode="rules")
+        assert item.decision.route != "auto_approve" and item.status == "pending", case["id"]
