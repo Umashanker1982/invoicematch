@@ -31,3 +31,31 @@ class FakeMessages:
 class FakeAnthropic:
     def __init__(self, *replies):
         self.messages = FakeMessages(replies)
+
+
+class AnswerKeyAnthropic(FakeAnthropic):
+    """Replies like a perfect reader: finds which sample invoice it was sent and returns its expected fields.
+
+    Used to test the web app and the pipeline end to end without a key. Unknown invoices get an empty answer.
+    """
+
+    def __init__(self):
+        super().__init__()
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1]
+        self.answers = {}
+        for name in ("golden_set.json", "holdout_set.json"):
+            for case in json.loads((root / "eval" / name).read_text(encoding="utf-8"))["cases"]:
+                fields = {k: v for k, v in case["expected_fields"].items() if k != "bank_account"}
+                self.answers[(fields["invoice_number"], fields["invoice_date"])] = fields
+        outer = self
+
+        class Messages(FakeMessages):
+            def create(self, **kwargs):
+                text = kwargs["messages"][0]["content"]
+                match = [a for (num, _), a in outer.answers.items() if num and num in text]
+                self.replies = [match[0] if len(match) == 1 else {"vendor": None, "lines": []}]
+                return super().create(**kwargs)
+
+        self.messages = Messages([])

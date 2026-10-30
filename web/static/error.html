@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}} | InvoiceMatch</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div><div class="brand-name">InvoiceMatch</div><div class="brand-sub">AI invoice-to-PO matching</div></div>
+    </div>
+  </header>
+  <main>
+    <div class="card error-card">
+      <div class="stamp red">{{stamp}}</div>
+      <h1>{{title}}</h1>
+      <p>{{message}}</p>
+      <p class="hint mono">Status {{code}}. Nothing was changed: every visitor uses a private demo workspace.</p>
+      <a class="btn primary" href="/">{{action}}</a>
+    </div>
+  </main>
+</body>
+</html>

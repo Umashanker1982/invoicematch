@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InvoiceMatch</title>
+  <meta name="description" content="AI invoice-to-PO matching for Silverbrook Financial (fictional). Capstone 2 by Umashanker.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E5B45'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' stroke='%23F6F3EA' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <div class="brand-name">InvoiceMatch</div>
+        <div class="brand-sub">AI invoice-to-PO matching for <span id="client-name">Silverbrook Financial</span></div>
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="mode" role="radiogroup" aria-label="How invoices are read">
+        <button class="mode-btn is-on" data-mode="claude" role="radio" aria-checked="true">Claude via SharedLLM</button>
+        <button class="mode-btn" data-mode="rules" role="radio" aria-checked="false">Rules only</button>
+      </div>
+      <div class="byline">Capstone 2 &middot; by <strong id="author">Umashanker</strong></div>
+    </div>
+  </header>
+
+  <div class="notice-bar">
+    Demo with sample invoices, created for this project. Silverbrook Financial and all vendors are fictional; no real company data.
+    <span id="ai-status" class="ai-status"></span>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab is-on" data-tab="check" role="tab" aria-selected="true">Check an invoice</button>
+    <button class="tab" data-tab="queue" role="tab" aria-selected="false">Review queue <span id="queue-count" class="pill" hidden>0</span></button>
+    <button class="tab" data-tab="audit" role="tab" aria-selected="false">Audit log</button>
+    <button class="tab" data-tab="metrics" role="tab" aria-selected="false">Metrics</button>
+    <button class="tab" data-tab="how" role="tab" aria-selected="false">How it works</button>
+  </nav>
+
+  <main>
+    <!-- ================================================================ CHECK -->
+    <section class="panel is-on" id="tab-check" role="tabpanel">
+      <div class="intro">
+        <h1>Read the invoice. Check it against the PO. Decide who needs to look.</h1>
+        <p>Pick a sample invoice (or paste your own text) and press <strong>Check invoice</strong>.
+          Claude reads it through the course's SharedLLM gateway, then written rules compare it with the
+          purchase order and contract and decide: approve automatically, ask the right approver, or send it to a person.
+          <strong>AI reads; rules decide; people approve.</strong></p>
+      </div>
+
+      <div class="tour" aria-label="Quick tour">
+        <span class="tour-label">Quick tour:</span>
+        <button class="chip" data-sample="01">1. A clean invoice</button>
+        <button class="chip" data-sample="11">2. Price above contract</button>
+        <button class="chip" data-sample="22">3. Bank details changed</button>
+        <button class="chip" data-sample="25">4. Hidden "approve me" text</button>
+        <button class="chip" data-sample="H02">5. A layout rules can't read</button>
+      </div>
+
+      <div class="grid">
+        <div class="card inbox">
+          <div class="card-head">
+            <h2>Invoice</h2>
+            <label class="sr-only" for="sample-select">Sample invoice</label>
+            <select id="sample-select"></select>
+          </div>
+          <p id="sample-title" class="sample-title"></p>
+          <label class="sr-only" for="invoice-text">Invoice text</label>
+          <textarea id="invoice-text" spellcheck="false" placeholder="Pick a sample above, or paste invoice text here."></textarea>
+          <div class="row between">
+            <span class="hint">Tip: change a price or the total, then check again.</span>
+            <span id="char-count" class="hint mono"></span>
+          </div>
+          <div class="row">
+            <button id="check-btn" class="btn primary">Check invoice</button>
+            <button id="clear-btn" class="btn ghost">Clear</button>
+          </div>
+        </div>
+
+        <div class="card result" id="result" aria-live="polite">
+          <ol class="steps" id="steps">
+            <li data-step="parse"><b>Parse</b><span>bank details removed</span></li>
+            <li data-step="read"><b>Read</b><span>Claude via SharedLLM</span></li>
+            <li data-step="ground"><b>Ground</b><span>values found in text?</span></li>
+            <li data-step="match"><b>Match</b><span>10 checks</span></li>
+            <li data-step="decide"><b>Decide</b><span>approval rules</span></li>
+            <li data-step="audit"><b>Record</b><span>audit log + ERP</span></li>
+          </ol>
+          <div id="result-body" class="empty">
+            <div class="empty-mark" aria-hidden="true"></div>
+            <p>The decision appears here: the fields Claude read, all ten checks, the line-by-line comparison,
+              and who has to act next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ QUEUE -->
+    <section class="panel" id="tab-queue" role="tabpanel">
+      <div class="intro">
+        <h1>Review queue</h1>
+        <p>Invoices the system did not approve on its own wait here. Each one can only be approved by the
+          right role, following Silverbrook's approval limits. Overrides need a written reason, and every action is logged.
+          Switch who you are acting as to see the limits at work.</p>
+      </div>
+      <div class="card acting">
+        <label for="persona">Acting as</label>
+        <select id="persona"></select>
+        <span class="hint" id="persona-hint"></span>
+      </div>
+      <div id="queue-list"></div>
+      <h2 class="sub">Recently decided</h2>
+      <div id="resolved-list" class="resolved"></div>
+    </section>
+
+    <!-- ================================================================ AUDIT -->
+    <section class="panel" id="tab-audit" role="tabpanel">
+      <div class="intro">
+        <h1>Audit log</h1>
+        <p>Every decision, approval, rejection, and ERP update is recorded with who did it and why. Each record carries
+          a fingerprint (hash) of the record before it, so changing an old record breaks the chain.
+          Try it: the tamper test edits an old record in <em>your</em> demo workspace only.</p>
+      </div>
+      <div class="row">
+        <button id="verify-btn" class="btn">Verify the chain</button>
+        <button id="tamper-btn" class="btn danger-ghost">Tamper test: secretly edit a record</button>
+        <button id="reset-btn" class="btn ghost">Reset my demo</button>
+      </div>
+      <div id="verify-result" class="verify" hidden></div>
+      <div class="table-wrap card"><table class="ledger" id="audit-table">
+        <thead><tr><th>#</th><th>Time (UTC)</th><th>Action</th><th>By</th><th>Invoice</th><th>Fingerprint</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </section>
+
+    <!-- ================================================================ METRICS -->
+    <section class="panel" id="tab-metrics" role="tabpanel">
+      <div class="intro">
+        <h1>Metrics</h1>
+        <p>Your session so far, the measured benchmark results from the repository, and the business case the
+          engagement is measured against.</p>
+      </div>
+      <h2 class="sub">This session</h2>
+      <div class="tiles" id="session-tiles"></div>
+      <h2 class="sub">Benchmark results <span class="hint">(eval/results in the repository)</span></h2>
+      <div class="table-wrap card"><table class="ledger" id="bench-table">
+        <thead><tr><th>Test set</th><th>Read by</th><th>Invoices</th><th>Field accuracy</th><th>Correct decisions</th><th>Wrong auto-approvals</th><th>AI cost / invoice</th><th>AI time (median)</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <p class="hint">"Sample" invoices were used while building the rules reader. "New layouts" were written afterwards to test invoices neither reader had seen.</p>
+      <h2 class="sub">Business case at month 6 <span class="hint">(scoping/business_case.md)</span></h2>
+      <div class="tiles">
+        <div class="tile"><b>50%</b><span>invoices with no human touch (primary metric)</span></div>
+        <div class="tile"><b>448 h</b><span>AP hours saved per month (57% less)</span></div>
+        <div class="tile"><b>~$313k</b><span>net benefit per year</span></div>
+        <div class="tile"><b>~7 months</b><span>payback of the $180k build</span></div>
+      </div>
+    </section>
+
+    <!-- ================================================================ HOW -->
+    <section class="panel" id="tab-how" role="tabpanel">
+      <div class="intro">
+        <h1>How it works</h1>
+        <p>A Forward Deployed Engineering engagement for a fictional finance company whose Accounts Payable team checks
+          supplier invoices against purchase orders by hand. The repository documents the whole engagement:
+          discovery, scoping, design, deployment, adoption, and productization.</p>
+      </div>
+      <div class="flow" aria-label="Pipeline">
+        <div class="node"><b>Invoice</b><span>text of a digital PDF or e-invoice</span></div>
+        <div class="node"><b>Document parser</b><span>reads bank details with fixed patterns and removes them before any AI call</span></div>
+        <div class="node ai"><b>Extraction agent</b><span>Claude (Haiku) via the SharedLLM gateway returns typed fields</span></div>
+        <div class="node"><b>Grounding</b><span>invoice no., PO, and totals must appear in the text, or they are discarded</span></div>
+        <div class="node"><b>Matching engine</b><span>10 written checks against PO, contract, and history</span></div>
+        <div class="node"><b>Approval routing</b><span>limits from the Delegation of Authority</span></div>
+        <div class="node"><b>Review queue + audit log</b><span>role-based approvals; tamper-evident log; ERP status update</span></div>
+      </div>
+      <div class="two">
+        <div class="card">
+          <h2>The rules (code, not AI)</h2>
+          <table class="ledger compact" id="rules-table"><tbody></tbody></table>
+        </div>
+        <div class="card">
+          <h2>Safety built in</h2>
+          <ul class="ticks">
+            <li>The AI only reads. It has no tools and cannot approve or pay anything.</li>
+            <li>Bank account numbers never reach the AI model.</li>
+            <li>Invoice text is treated as untrusted data; hidden instructions are ignored.</li>
+            <li>Values the AI returns must be printed on the invoice, and the lines must add up to the printed total.</li>
+            <li>Only matched invoices up to <span id="limit-auto">$10,000</span> are approved automatically.</li>
+            <li>Changed bank details always go to Information Security.</li>
+            <li>If the AI gateway fails, a rules reader takes over; unreadable invoices go to a person, never to payment.</li>
+          </ul>
+          <h2>Read the engagement</h2>
+          <ul class="links" id="doc-links"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>InvoiceMatch &middot; Capstone 2: Full FDE Engagement Simulation &middot; by <strong id="author-foot">Umashanker</strong></span>
+    <a id="repo-link" href="https://github.com/Umashanker1982/invoicematch" rel="noopener">Source and documents on GitHub</a>
+  </footer>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

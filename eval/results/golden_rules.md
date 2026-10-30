@@ -1,6 +1,6 @@
 # Benchmark: golden set, rules mode
 
-Run at 2026-10-30T18:14:49+00:00
+Run at 2026-10-30T18:32:57+00:00
 
 | Metric | Value |
 |---|---|

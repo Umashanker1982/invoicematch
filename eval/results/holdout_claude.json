@@ -3,7 +3,7 @@
     "set": "holdout",
     "mode": "claude",
     "model": "claude-haiku-5-5",
-    "run_at": "2026-10-30T18:16:55+00:00",
+    "run_at": "2026-10-30T18:34:31+00:00",
     "invoices": 12,
     "field_accuracy": 1.0,
     "invoices_fully_read": 12,
@@ -19,11 +19,11 @@
       "claude": 12
     },
     "fallbacks": 0,
-    "ai_cost_total_usd": 0.00236,
-    "ai_cost_per_invoice_usd": 0.000197,
-    "ai_latency_p50_ms": 1793,
-    "ai_latency_p95_ms": 2819,
-    "total_seconds": 24.0
+    "ai_cost_total_usd": 0.00253,
+    "ai_cost_per_invoice_usd": 0.000211,
+    "ai_latency_p50_ms": 2152,
+    "ai_latency_p95_ms": 3018,
+    "total_seconds": 27.0
   },
   "cases": [
     {
@@ -41,8 +41,8 @@
       "wrong_auto_approval": false,
       "missed_exception": false,
       "false_exception": false,
-      "cost_usd": 0.000176,
-      "ms": 2335.0
+      "cost_usd": 0.000172,
+      "ms": 1589.2
     },
     {
       "id": "H02",
@@ -60,7 +60,7 @@
       "missed_exception": false,
       "false_exception": false,
       "cost_usd": 0.000191,
-      "ms": 1748.2
+      "ms": 1687.9
     },
     {
       "id": "H03",
@@ -78,7 +78,7 @@
       "missed_exception": false,
       "false_exception": false,
       "cost_usd": 0.000169,
-      "ms": 1795.9
+      "ms": 1764.5
     },
     {
       "id": "H04",
@@ -96,7 +96,7 @@
       "missed_exception": false,
       "false_exception": false,
       "cost_usd": 0.000157,
-      "ms": 1563.3
+      "ms": 1695.8
     },
     {
       "id": "H05",
@@ -113,8 +113,8 @@
       "wrong_auto_approval": false,
       "missed_exception": false,
       "false_exception": false,
-      "cost_usd": 0.000305,
-      "ms": 2821.4
+      "cost_usd": 0.000336,
+      "ms": 3020.3
     },
     {
       "id": "H06",
@@ -131,8 +131,8 @@
       "wrong_auto_approval": false,
       "missed_exception": false,
       "false_exception": false,
-      "cost_usd": 0.000166,
-      "ms": 1426.1
+      "cost_usd": 0.000256,
+      "ms": 2154.4
     },
     {
       "id": "H07",
@@ -153,8 +153,8 @@
       "wrong_auto_approval": false,
       "missed_exception": false,
       "false_exception": false,
-      "cost_usd": 0.000256,
-      "ms": 2282.2
+      "cost_usd": 0.000296,
+      "ms": 2811.6
     },
     {
       "id": "H08",
@@ -176,7 +176,7 @@
       "missed_exception": false,
       "false_exception": false,
       "cost_usd": 0.000164,
-      "ms": 1581.9
+      "ms": 1503.3
     },
     {
       "id": "H09",
@@ -194,7 +194,7 @@
       "missed_exception": false,
       "false_exception": false,
       "cost_usd": 0.000167,
-      "ms": 1979.5
+      "ms": 2182.9
     },
     {
       "id": "H10",
@@ -215,8 +215,8 @@
       "wrong_auto_approval": false,
       "missed_exception": false,
       "false_exception": false,
-      "cost_usd": 0.000293,
-      "ms": 3301.0
+      "cost_usd": 0.000301,
+      "ms": 4679.7
     },
     {
       "id": "H11",
@@ -238,7 +238,7 @@
       "missed_exception": false,
       "false_exception": false,
       "cost_usd": 0.000159,
-      "ms": 1625.0
+      "ms": 2388.7
     },
     {
       "id": "H12",
@@ -260,7 +260,7 @@
       "missed_exception": false,
       "false_exception": false,
       "cost_usd": 0.000162,
-      "ms": 1457.0
+      "ms": 1505.0
     }
   ]
 }

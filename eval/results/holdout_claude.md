@@ -1,6 +1,6 @@
 # Benchmark: holdout set, claude mode
 
-Run at 2026-10-30T18:16:55+00:00 with `claude-haiku-5-5` through SharedLLM
+Run at 2026-10-30T18:34:31+00:00 with `claude-haiku-5-5` through SharedLLM
 
 | Metric | Value |
 |---|---|
@@ -13,8 +13,8 @@ Run at 2026-10-30T18:16:55+00:00 with `claude-haiku-5-5` through SharedLLM
 | False exceptions (sent to a person unnecessarily) | 0 |
 | No-touch rate on this set | 50% |
 | Read by | claude: 12 (fallbacks: 0) |
-| AI cost | $0.0024 total, $0.00020 per invoice |
-| AI latency p50 / p95 | 1793 / 2819 ms |
+| AI cost | $0.0025 total, $0.00021 per invoice |
+| AI latency p50 / p95 | 2152 / 3018 ms |
 
 | Invoice | Read by | Expected | Got | Fields wrong | Result |
 |---|---|---|---|---|---|
