@@ -27,3 +27,12 @@ jobs:
         run: python eval/benchmark.py --set golden --mode rules --gate --no-save
       - name: Safety gate on the held-out set (0 wrong auto-approvals, even when invoices cannot be read)
         run: python eval/benchmark.py --set holdout --mode rules --safety-gate --no-save
+      - name: Build the Docker image used by the live demo
+        run: docker build -t invoicematch:ci .
+      - name: Start the container and check it answers
+        run: |
+          docker run -d --name im -p 8000:8000 -e PORT=8000 invoicematch:ci
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8000/healthz && break; sleep 1; done
+          curl -fsS http://127.0.0.1:8000/api/config | grep -q Silverbrook
+          curl -fsS http://127.0.0.1:8000/ | grep -q "<title>InvoiceMatch</title>"
+          docker logs im

@@ -1,0 +1,30 @@
+# Render Blueprint: deploys the InvoiceMatch web demo from this repository.
+# Render dashboard -> New -> Blueprint -> pick this repository. Paste SHAREDLLM_KEY when prompted.
+services:
+  - type: web
+    name: invoicematch
+    runtime: docker
+    plan: free                 # sleeps after 15 idle minutes; "starter" keeps it always on
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: SHAREDLLM_KEY
+        sync: false            # secret: entered in the Render dashboard, never stored in git
+      - key: LLM_MODE
+        value: claude
+      - key: LLM_BASE_URL
+        value: https://api.sharedllm.com/anthropic
+      - key: CLAUDE_MODEL
+        value: claude-haiku-5-5
+      - key: LLM_TIMEOUT_S     # keep the live demo responsive; on failure it falls back to rules
+        value: "15"
+      - key: LLM_MAX_RETRIES
+        value: "1"
+      - key: DEMO_AUTHOR
+        value: Umashanker
+      - key: DEMO_DAILY_AI_REQUESTS   # protects the AI budget; after this, invoices are read by rules
+        value: "300"
+      - key: DEMO_REQUESTS_PER_10MIN
+        value: "40"
+      - key: MAINTENANCE_MODE  # set to 1 to show a "back shortly" page to every visitor
+        value: "0"
